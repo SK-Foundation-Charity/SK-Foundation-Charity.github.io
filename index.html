@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SK-Foundation — Help the Needy</title>
+<meta name="description" content="SK-Foundation connects generous hearts to families in need across Pakistan. Donate via Easypaisa, JazzCash, card or PayPal.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --green:#1a6b4a;
+  --green-light:#e8f4ef;
+  --green-mid:#2d9e6b;
+  --gold:#c9a84c;
+  --gold-light:#faf3e0;
+  --text:#1a1a1a;
+  --text-muted:#666;
+  --text-hint:#999;
+  --bg:#fafaf8;
+  --white:#ffffff;
+  --border:#e8e8e4;
+  --radius:12px;
+  --radius-sm:8px;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
+a{color:inherit;text-decoration:none;}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(250,250,248,0.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);padding:0 2rem;}
+.nav-inner{max-width:980px;margin:0 auto;height:60px;display:flex;align-items:center;justify-content:space-between;}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;letter-spacing:0.04em;color:var(--green);}
+.nav-logo span{color:var(--gold);}
+.nav-tagline{font-size:12px;color:var(--text-muted);letter-spacing:0.06em;}
+
+/* HERO */
+.hero{max-width:980px;margin:0 auto;padding:4rem 2rem 3rem;text-align:center;}
+.hero-eyebrow{display:inline-block;background:var(--green-light);color:var(--green);font-size:11px;font-weight:500;padding:5px 16px;border-radius:20px;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:1.5rem;}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:3.2rem;font-weight:700;line-height:1.15;color:var(--text);margin-bottom:1.25rem;}
+.hero h1 em{color:var(--green);font-style:normal;}
+.hero p{font-size:1.05rem;color:var(--text-muted);max-width:580px;margin:0 auto 2.5rem;line-height:1.8;}
+.hero-divider{width:48px;height:2px;background:var(--gold);margin:0 auto 2.5rem;}
+
+/* PROGRESS */
+.section{max-width:980px;margin:0 auto;padding:0 2rem 2rem;}
+.progress-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem 2rem;margin-bottom:1.5rem;}
+.prog-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.75rem;}
+.prog-title{font-size:14px;font-weight:500;color:var(--text);}
+.prog-pct{font-size:13px;color:var(--text-muted);}
+.prog-bg{background:#ece9e4;border-radius:99px;height:8px;overflow:hidden;margin-bottom:0.75rem;}
+.prog-fill{height:100%;border-radius:99px;background:var(--green-mid);transition:width 1.2s cubic-bezier(.4,0,.2,1);}
+.prog-row{display:flex;justify-content:space-between;font-size:13px;color:var(--text-muted);}
+.prog-raised{font-size:1.5rem;font-weight:500;color:var(--text);}
+
+/* GRID */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:1.25rem;}
+@media(max-width:640px){.two-col{grid-template-columns:1fr;}.hero h1{font-size:2.2rem;}}
+.card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;}
+.card-head{font-size:13px;font-weight:500;color:var(--text);margin-bottom:1.1rem;display:flex;align-items:center;gap:8px;}
+.icon-tag{width:28px;height:28px;border-radius:7px;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;flex-shrink:0;}
+
+/* AMOUNTS */
+.amt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:0.9rem;}
+.amt-btn{background:#f5f5f3;border:1px solid var(--border);border-radius:var(--radius-sm);padding:9px 4px;font-size:13px;font-weight:500;color:var(--text);cursor:pointer;text-align:center;font-family:'DM Sans',sans-serif;transition:all 0.12s;}
+.amt-btn:hover{border-color:#aaa;}
+.amt-btn.on{background:var(--green-light);color:var(--green);border-color:var(--green-mid);}
+.cust{display:flex;align-items:center;border:1px solid var(--border);border-radius:var(--radius-sm);overflow:hidden;margin-bottom:0.9rem;}
+.ctag{padding:0 11px;font-size:13px;color:var(--text-muted);background:#f5f5f3;border-right:1px solid var(--border);height:38px;display:flex;align-items:center;flex-shrink:0;}
+.cust input{flex:1;border:none;outline:none;padding:0 11px;font-size:13px;height:38px;background:transparent;color:var(--text);font-family:'DM Sans',sans-serif;}
+
+/* BUTTONS */
+.dbtn{width:100%;padding:12px;border-radius:var(--radius-sm);font-size:14px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;border:none;transition:opacity 0.15s,transform 0.1s;margin-bottom:8px;letter-spacing:0.01em;}
+.dbtn:last-child{margin-bottom:0;}
+.dbtn:active{transform:scale(0.98);}
+.dbtn:hover{opacity:0.9;}
+.bg-green{background:var(--green);color:#fff;}
+.bg-orange{background:#e07318;color:#fff;}
+.bg-blue{background:#0062b8;color:#fff;}
+.bg-purple{background:#5e3ea1;color:#fff;}
+.bg-ghost{background:transparent;color:var(--text);border:1px solid var(--border);}
+
+/* TABS */
+.tab-row{display:flex;gap:6px;margin-bottom:1rem;flex-wrap:wrap;}
+.tbtn{padding:5px 13px;border-radius:20px;font-size:12px;font-weight:500;cursor:pointer;border:1px solid var(--border);background:transparent;color:var(--text-muted);font-family:'DM Sans',sans-serif;transition:all 0.12s;}
+.tbtn.on{background:var(--green-light);color:var(--green);border-color:var(--green-mid);}
+.irow{display:flex;justify-content:space-between;font-size:13px;padding:6px 0;border-bottom:1px solid var(--border);}
+.irow:last-child{border-bottom:none;}
+.ilb{color:var(--text-muted);}
+.ivl{font-weight:500;}
+
+/* SHARE */
+.share-box{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;margin-bottom:1.25rem;}
+.link-strip{background:#f5f5f3;border:1px solid var(--border);border-radius:var(--radius-sm);padding:0.8rem 1rem;display:flex;align-items:center;gap:10px;margin-bottom:1rem;}
+.link-txt{flex:1;font-size:12px;color:var(--text-muted);word-break:break-all;font-family:monospace;}
+.copy-btn{padding:6px 14px;border-radius:var(--radius-sm);border:1px solid var(--border);background:var(--white);font-size:12px;font-weight:500;cursor:pointer;color:var(--text);white-space:nowrap;}
+.share-btns{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;}
+
+/* IMPACT */
+.impact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1rem;}
+@media(max-width:480px){.impact-grid{grid-template-columns:1fr 1fr;}}
+.imp-num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--green);}
+.imp-lbl{font-size:12px;color:var(--text-muted);margin-top:2px;line-height:1.4;}
+
+/* DONORS */
+.donor-row{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--border);}
+.donor-row:last-child{border-bottom:none;}
+.dav{width:33px;height:33px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:500;flex-shrink:0;}
+.dname{font-size:14px;font-weight:500;}
+.dtime{font-size:11px;color:var(--text-hint);}
+.damt{margin-left:auto;font-size:13px;font-weight:500;color:var(--green);}
+
+/* TOAST */
+.toast-area{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);z-index:999;pointer-events:none;}
+.toast{display:none;background:var(--green);color:#fff;padding:11px 24px;border-radius:30px;font-size:13px;font-weight:500;white-space:nowrap;}
+.toast.show{display:block;animation:fup 0.3s ease;}
+@keyframes fup{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+/* FOOTER */
+footer{text-align:center;padding:2.5rem 1rem 3rem;font-size:12px;color:var(--text-hint);border-top:1px solid var(--border);margin-top:2rem;}
+footer span{cursor:pointer;}
+
+/* ADMIN GATE */
+.overlay{display:none;position:fixed;inset:0;background:rgba(10,10,10,0.7);z-index:200;align-items:center;justify-content:center;padding:1rem;}
+.overlay.open{display:flex;}
+.gate-card{background:var(--white);border-radius:var(--radius);padding:2rem;max-width:380px;width:100%;border:1px solid var(--border);}
+.gate-title{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;color:var(--text);margin-bottom:0.4rem;}
+.gate-sub{font-size:13px;color:var(--text-muted);margin-bottom:1.5rem;line-height:1.6;}
+.flbl{font-size:12px;color:var(--text-muted);margin-bottom:4px;margin-top:12px;}
+.finp{width:100%;border:1px solid var(--border);border-radius:var(--radius-sm);padding:9px 12px;font-size:13px;background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;outline:none;}
+.finp:focus{border-color:#aaa;}
+.err{font-size:12px;color:#c0392b;margin-top:8px;display:none;}
+.gate-btns{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:1.2rem;}
+
+/* ADMIN PANEL */
+.admin-wrap{display:none;max-width:980px;margin:0 auto;padding:1.5rem 2rem 3rem;}
+.admin-wrap.open{display:block;}
+.adm-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid var(--border);}
+.adm-title{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:700;color:var(--green);}
+.adm-sub{font-size:12px;color:var(--text-muted);margin-top:2px;}
+.logout-btn{padding:7px 16px;border-radius:var(--radius-sm);border:1px solid var(--border);background:transparent;font-size:13px;font-weight:500;cursor:pointer;color:var(--text-muted);font-family:'DM Sans',sans-serif;}
+
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:1.5rem;}
+@media(max-width:600px){.stats-row{grid-template-columns:1fr 1fr;}}
+.stat-card{background:#f5f5f3;border-radius:var(--radius-sm);padding:1rem;}
+.stat-lbl{font-size:11px;color:var(--text-muted);margin-bottom:4px;text-transform:uppercase;letter-spacing:0.06em;}
+.stat-val{font-size:1.3rem;font-weight:500;color:var(--text);}
+
+.adm-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;}
+@media(max-width:600px){.adm-grid{grid-template-columns:1fr;}}
+.adm-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.4rem;}
+.adm-card-title{font-size:14px;font-weight:500;color:var(--text);margin-bottom:1rem;}
+.ef{width:100%;border:1px solid var(--border);border-radius:var(--radius-sm);padding:8px 11px;font-size:13px;background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;outline:none;margin-bottom:8px;}
+textarea.ef{resize:vertical;min-height:80px;line-height:1.6;}
+.ef:focus{border-color:#aaa;}
+.save-btn{padding:8px 18px;border-radius:var(--radius-sm);background:var(--green);color:#fff;border:none;font-size:13px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;}
+.save-btn:active{transform:scale(0.97);}
+
+.tog-row{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid var(--border);font-size:13px;}
+.tog-row:last-child{border-bottom:none;}
+.tog-lbl{color:var(--text);}
+.tog-sub{font-size:11px;color:var(--text-hint);margin-top:1px;}
+.tog{width:36px;height:20px;border-radius:10px;background:var(--border);position:relative;cursor:pointer;flex-shrink:0;transition:background 0.2s;border:none;}
+.tog.on{background:var(--green-mid);}
+.tog::after{content:'';position:absolute;width:14px;height:14px;border-radius:50%;background:#fff;top:3px;left:3px;transition:left 0.2s;}
+.tog.on::after{left:19px;}
+
+.txn-table{width:100%;border-collapse:collapse;font-size:13px;}
+.txn-table th{text-align:left;font-weight:500;color:var(--text-muted);font-size:11px;text-transform:uppercase;letter-spacing:0.06em;padding:0 0 8px;border-bottom:1px solid var(--border);}
+.txn-table td{padding:9px 0;border-bottom:1px solid var(--border);color:var(--text);}
+.txn-table tr:last-child td{border-bottom:none;}
+.sp{display:inline-block;padding:2px 9px;border-radius:20px;font-size:11px;font-weight:500;}
+.sp-ok{background:var(--green-light);color:var(--green);}
+.sp-pend{background:#fef9ec;color:#9a6b00;}
+
+.pass-bar{height:4px;border-radius:2px;margin-top:4px;transition:width 0.3s,background 0.3s;}
+
+/* ANIMATIONS */
+@keyframes fadein{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.hero,.progress-card,.card,.share-box{animation:fadein 0.6s ease both;}
+.card:nth-child(2){animation-delay:0.08s;}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">SK<span>-</span>FOUNDATION</div>
+    <div class="nav-tagline">Serving humanity since today</div>
+  </div>
+</nav>
+
+<!-- PUBLIC PAGE -->
+<div id="pubPage">
+
+<div class="hero">
+  <div class="hero-eyebrow">100% transparent &nbsp;·&nbsp; anonymous trustee &nbsp;·&nbsp; verified cause</div>
+  <h1>Every Rupee You Give<br>Feeds a <em>Real Family</em></h1>
+  <div class="hero-divider"></div>
+  <p id="pubDesc">In Pakistan, millions of families cannot afford food, medicine, or shelter. SK-Foundation bridges generous hearts — local and worldwide — directly to those who need help most. No overhead. No middlemen. Every rupee and every dollar reaches a real family in need. Your donation, however small, creates change that lasts a lifetime.</p>
+</div>
+
+<div class="section">
+
+  <!-- PROGRESS -->
+  <div class="progress-card">
+    <div class="prog-top">
+      <span class="prog-title">Fundraising progress</span>
+      <span class="prog-pct" id="pctLbl">0% reached</span>
+    </div>
+    <div class="prog-bg"><div class="prog-fill" id="progFill" style="width:0%"></div></div>
+    <div class="prog-row">
+      <span><span class="prog-raised" id="raisedLbl">Rs. 0</span> raised</span>
+      <span>Goal: <span id="goalLbl">Rs. 2,00,000</span></span>
+    </div>
+  </div>
+
+  <!-- DONATION CARDS -->
+  <div class="two-col">
+    <!-- LOCAL -->
+    <div class="card">
+      <div class="card-head">
+        <span class="icon-tag" style="background:#e8f4ef;color:#1a6b4a;">EP</span>
+        Local — Easypaisa / JazzCash
+      </div>
+      <div class="amt-grid" id="lGrid">
+        <button class="amt-btn on" onclick="selAmt('l',100,this)">Rs. 100</button>
+        <button class="amt-btn" onclick="selAmt('l',500,this)">Rs. 500</button>
+        <button class="amt-btn" onclick="selAmt('l',1000,this)">Rs. 1,000</button>
+        <button class="amt-btn" onclick="selAmt('l',2000,this)">Rs. 2,000</button>
+        <button class="amt-btn" onclick="selAmt('l',5000,this)">Rs. 5,000</button>
+        <button class="amt-btn" onclick="selAmt('l',0,this)">Custom</button>
+      </div>
+      <div class="cust" id="lCust" style="display:none;"><span class="ctag">PKR</span><input type="number" placeholder="Enter amount" id="lCustVal" min="10"></div>
+      <button class="dbtn bg-green" onclick="donate('ep')">Donate via Easypaisa</button>
+      <button class="dbtn bg-orange" onclick="donate('jc')">Donate via JazzCash</button>
+    </div>
+    <!-- INTERNATIONAL -->
+    <div class="card">
+      <div class="card-head">
+        <span class="icon-tag" style="background:#e8f0fb;color:#0062b8;">$</span>
+        International donors
+      </div>
+      <div class="tab-row">
+        <button class="tbtn on" onclick="switchTab('pp',this)">PayPal</button>
+        <button class="tbtn" onclick="switchTab('cd',this)">Card</button>
+        <button class="tbtn" onclick="switchTab('bk',this)">Bank wire</button>
+      </div>
+      <div id="tab-pp">
+        <div class="amt-grid" id="iGrid">
+          <button class="amt-btn on" onclick="selAmt('i',2,this)">$2</button>
+          <button class="amt-btn" onclick="selAmt('i',5,this)">$5</button>
+          <button class="amt-btn" onclick="selAmt('i',10,this)">$10</button>
+          <button class="amt-btn" onclick="selAmt('i',25,this)">$25</button>
+          <button class="amt-btn" onclick="selAmt('i',50,this)">$50</button>
+          <button class="amt-btn" onclick="selAmt('i',0,this)">Custom</button>
+        </div>
+        <div class="cust" id="iCust" style="display:none;"><span class="ctag">USD</span><input type="number" placeholder="Enter amount" id="iCustVal" min="1"></div>
+        <button class="dbtn bg-blue" onclick="donate('pp')">Donate via PayPal</button>
+      </div>
+      <div id="tab-cd" style="display:none;">
+        <div style="display:flex;flex-direction:column;gap:7px;margin-bottom:0.9rem;">
+          <input type="text" placeholder="Card number" class="finp">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:7px;">
+            <input type="text" placeholder="MM / YY" class="finp">
+            <input type="text" placeholder="CVC" class="finp">
+          </div>
+        </div>
+        <button class="dbtn bg-purple" onclick="donate('cd')">Pay securely</button>
+      </div>
+      <div id="tab-bk" style="display:none;">
+        <div style="margin-bottom:0.9rem;">
+          <div class="irow"><span class="ilb">Bank name</span><span class="ivl" id="bkName">HBL Pakistan</span></div>
+          <div class="irow"><span class="ilb">Account title</span><span class="ivl" id="bkTitle">SK-Foundation Trust</span></div>
+          <div class="irow"><span class="ilb">Account no.</span><span class="ivl" id="bkNum">—</span></div>
+          <div class="irow"><span class="ilb">SWIFT</span><span class="ivl" id="bkSwift">HABBPKKA</span></div>
+        </div>
+        <button class="dbtn bg-ghost" onclick="toast('Bank details copied!')">Copy details</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SHARE -->
+  <div class="share-box">
+    <div style="font-size:14px;font-weight:500;margin-bottom:1rem;">Share this cause — every share reaches more families</div>
+    <div class="link-strip">
+      <span class="link-txt" id="shareUrl">https://sk-foundation.pk/donate</span>
+      <button class="copy-btn" onclick="copyLink()">Copy link</button>
+    </div>
+    <div class="share-btns">
+      <button class="dbtn bg-ghost" style="margin:0;font-size:13px;" onclick="toast('Opening WhatsApp...')">WhatsApp</button>
+      <button class="dbtn bg-ghost" style="margin:0;font-size:13px;" onclick="toast('Opening Twitter/X...')">Twitter / X</button>
+      <button class="dbtn bg-ghost" style="margin:0;font-size:13px;" onclick="toast('Opening Facebook...')">Facebook</button>
+    </div>
+  </div>
+
+  <!-- IMPACT -->
+  <div class="card" style="margin-bottom:1.25rem;">
+    <div style="font-size:14px;font-weight:500;margin-bottom:0.5rem;">Your impact so far</div>
+    <div class="impact-grid">
+      <div><div class="imp-num" id="imp1">0</div><div class="imp-lbl">Families helped</div></div>
+      <div><div class="imp-num" id="imp2">0</div><div class="imp-lbl">Meals provided</div></div>
+      <div><div class="imp-num" id="imp3">0</div><div class="imp-lbl">Medical kits sent</div></div>
+    </div>
+  </div>
+
+  <!-- DONORS -->
+  <div class="card">
+    <div style="font-size:14px;font-weight:500;margin-bottom:0.75rem;">Recent donors</div>
+    <div id="donorList">
+      <div style="font-size:13px;color:#999;padding:1rem 0;text-align:center;">Be the first to donate — start the movement.</div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p>SK-Foundation &nbsp;·&nbsp; Serving Pakistan's most vulnerable families</p>
+  <p style="margin-top:6px;">All funds managed by an anonymous trustee &nbsp;·&nbsp; 100% reach guarantee</p>
+  <p style="margin-top:12px;"><span id="adminTrigger" onclick="openGate()" title="">&#8203;</span></p>
+</footer>
+
+</div><!-- /pubPage -->
+
+<!-- ADMIN GATE OVERLAY -->
+<div class="overlay" id="gateOverlay">
+  <div class="gate-card">
+    <div class="gate-title">Secure access</div>
+    <div class="gate-sub">Restricted area. Unauthorised access attempts are logged and monitored.</div>
+    <div class="flbl">Username</div>
+    <input type="text" class="finp" id="loginUser" placeholder="Username" autocomplete="off">
+    <div class="flbl">Password</div>
+    <input type="password" class="finp" id="loginPass" placeholder="Password" autocomplete="off" onkeydown="if(event.key==='Enter')tryLogin()">
+    <div class="err" id="loginErr">Access denied. Incorrect credentials.</div>
+    <div class="gate-btns">
+      <button class="dbtn bg-ghost" style="margin:0;" onclick="closeGate()">Cancel</button>
+      <button class="dbtn bg-green" style="margin:0;" onclick="tryLogin()">Enter</button>
+    </div>
+    <p style="margin-top:1rem;font-size:11px;color:#aaa;line-height:1.7;">
+      Default — Username: <code>boss</code> &nbsp; Password: <code>SKF@786secure</code><br>
+      <span style="color:#c0392b;">Change credentials immediately after first login.</span>
+    </p>
+  </div>
+</div>
+
+<!-- ADMIN PANEL -->
+<div class="admin-wrap" id="adminPanel">
+  <div class="adm-header">
+    <div>
+      <div class="adm-title">SK-Foundation — Control Panel</div>
+      <div class="adm-sub">Full control &nbsp;·&nbsp; Your identity is hidden from all donors</div>
+    </div>
+    <button class="logout-btn" onclick="logout()">Log out</button>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat-card"><div class="stat-lbl">Total raised</div><div class="stat-val" id="sTot">Rs. 0</div></div>
+    <div class="stat-card"><div class="stat-lbl">Total donors</div><div class="stat-val" id="sDon">0</div></div>
+    <div class="stat-card"><div class="stat-lbl">Today</div><div class="stat-val" id="sToday">Rs. 0</div></div>
+    <div class="stat-card"><div class="stat-lbl">Goal progress</div><div class="stat-val" id="sGoal">0%</div></div>
+  </div>
+
+  <div class="adm-grid">
+    <div class="adm-card">
+      <div class="adm-card-title">Edit campaign</div>
+      <div class="flbl">Campaign description</div>
+      <textarea class="ef" id="eDesc">In Pakistan, millions of families cannot afford food, medicine, or shelter. SK-Foundation bridges generous hearts — local and worldwide — directly to those who need help most. No overhead. No middlemen. Every rupee and every dollar reaches a real family in need. Your donation, however small, creates change that lasts a lifetime.</textarea>
+      <div class="flbl">Fundraising goal (PKR)</div>
+      <input class="ef" id="eGoal" type="number" value="200000">
+      <button class="save-btn" onclick="saveContent()">Save changes</button>
+    </div>
+    <div class="adm-card">
+      <div class="adm-card-title">Payment account details</div>
+      <div class="flbl">Easypaisa number</div>
+      <input class="ef" id="epNum" placeholder="03XX-XXXXXXX">
+      <div class="flbl">JazzCash number</div>
+      <input class="ef" id="jcNum" placeholder="03XX-XXXXXXX">
+      <div class="flbl">Bank account title</div>
+      <input class="ef" id="aBkTitle" value="SK-Foundation Trust">
+      <div class="flbl">Account number</div>
+      <input class="ef" id="aBkNum" placeholder="Your bank account number">
+      <div class="flbl">SWIFT code</div>
+      <input class="ef" id="aBkSwift" value="HABBPKKA">
+      <button class="save-btn" onclick="saveBank()">Save bank details</button>
+    </div>
+  </div>
+
+  <div class="adm-grid">
+    <div class="adm-card">
+      <div class="adm-card-title">Impact stats (shown to donors)</div>
+      <div class="flbl">Families helped</div>
+      <input class="ef" id="eI1" type="number" value="0">
+      <div class="flbl">Meals provided</div>
+      <input class="ef" id="eI2" type="number" value="0">
+      <div class="flbl">Medical kits sent</div>
+      <input class="ef" id="eI3" type="number" value="0">
+      <button class="save-btn" onclick="saveImpact()">Update stats</button>
+    </div>
+    <div class="adm-card">
+      <div class="adm-card-title">Shareable link generator</div>
+      <div class="flbl">Your domain</div>
+      <input class="ef" id="baseDomain" value="https://sk-foundation.pk">
+      <div class="flbl">Campaign slug</div>
+      <input class="ef" id="campSlug" value="donate">
+      <div class="flbl">UTM source (optional)</div>
+      <input class="ef" id="utmSrc" placeholder="whatsapp / facebook / email">
+      <button class="save-btn" style="margin-bottom:10px;" onclick="genLink()">Generate link</button>
+      <div class="link-strip" id="genBox" style="display:none;">
+        <span class="link-txt" id="genLinkTxt"></span>
+        <button class="copy-btn" onclick="copyGen()">Copy</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="adm-card" style="margin-bottom:1rem;">
+    <div class="adm-card-title">Platform settings</div>
+    <div class="tog-row"><div><div class="tog-lbl">Accept donations</div><div class="tog-sub">Pause to stop all payments</div></div><button class="tog on" onclick="this.classList.toggle('on')"></button></div>
+    <div class="tog-row"><div><div class="tog-lbl">Show donor feed</div><div class="tog-sub">Recent donors visible publicly</div></div><button class="tog on" onclick="this.classList.toggle('on')"></button></div>
+    <div class="tog-row"><div><div class="tog-lbl">Show progress bar</div><div class="tog-sub">Goal progress visible publicly</div></div><button class="tog on" onclick="this.classList.toggle('on')"></button></div>
+    <div class="tog-row"><div><div class="tog-lbl">Anonymous mode</div><div class="tog-sub">Your name never appears anywhere</div></div><button class="tog on" onclick="this.classList.toggle('on')"></button></div>
+  </div>
+
+  <div class="adm-card" style="margin-bottom:1rem;">
+    <div class="adm-card-title">Change credentials</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.9rem;">
+      <div><div class="flbl">New username</div><input class="ef" id="nUser" placeholder="New username"></div>
+      <div><div class="flbl">New password</div><input class="ef" type="password" id="nPass" placeholder="Min 8 characters" oninput="checkStr(this.value)"><div class="pass-bar" id="pBar" style="width:0%;background:#c0392b;"></div></div>
+    </div>
+    <div class="flbl">Confirm password</div>
+    <input class="ef" type="password" id="cPass" placeholder="Confirm password">
+    <div style="margin-top:0.9rem;"><button class="save-btn" onclick="changeCreds()">Update credentials</button></div>
+  </div>
+
+  <div class="adm-card">
+    <div class="adm-card-title">Transaction log</div>
+    <div style="overflow-x:auto;">
+      <table class="txn-table">
+        <thead><tr><th>Donor</th><th>Amount</th><th>Method</th><th>Time</th><th>Status</th></tr></thead>
+        <tbody id="txnBody"><tr><td colspan="5" style="text-align:center;color:#aaa;padding:1rem 0;">No transactions yet.</td></tr></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="toast-area"><div class="toast" id="toastEl"></div></div>
+
+<script>
+var lAmt=100,iAmt=2,raisedPKR=0,goalPKR=200000,donorCount=0,todayPKR=0;
+var adminUser='boss',adminPass='SKF@786secure';
+var attempts=0,lockUntil=0;
+var firstDonor=true;
+
+function toast(msg,dur){dur=dur||3000;var t=document.getElementById('toastEl');t.textContent=msg;t.className='toast show';setTimeout(function(){t.className='toast';},dur);}
+
+function selAmt(type,val,el){
+  var btns=type==='l'?document.querySelectorAll('#lGrid .amt-btn'):document.querySelectorAll('#iGrid .amt-btn');
+  btns.forEach(function(b){b.classList.remove('on');});el.classList.add('on');
+  var cw=type==='l'?document.getElementById('lCust'):document.getElementById('iCust');
+  if(val===0){cw.style.display='flex';}else{cw.style.display='none';if(type==='l')lAmt=val;else iAmt=val;}
+}
+function switchTab(tab,el){
+  ['pp','cd','bk'].forEach(function(t){document.getElementById('tab-'+t).style.display=t===tab?'block':'none';});
+  document.querySelectorAll('.tbtn').forEach(function(b){b.classList.remove('on');});el.classList.add('on');
+}
+
+function donate(method){
+  var amt,cur,lbl;
+  if(method==='ep'||method==='jc'){
+    var cv=document.getElementById('lCust');
+    amt=cv.style.display!=='none'?(parseInt(document.getElementById('lCustVal').value)||100):lAmt;
+    cur='PKR';lbl=method==='ep'?'Easypaisa':'JazzCash';
+  } else if(method==='pp'){
+    var cv2=document.getElementById('iCust');
+    amt=cv2.style.display!=='none'?(parseFloat(document.getElementById('iCustVal').value)||2):iAmt;
+    cur='USD';lbl='PayPal';
+  } else if(method==='cd'){amt=iAmt;cur='USD';lbl='Card';}
+  else{toast('Bank details copied!');return;}
+  var pkr=cur==='USD'?Math.round(amt*280):amt;
+  raisedPKR+=pkr;todayPKR+=pkr;donorCount++;
+  updateProgress();addDonorRow(amt,cur);addTxn(amt,cur,lbl);
+  toast('Thank you! '+(cur==='PKR'?'Rs. '+amt.toLocaleString():'$'+amt)+' via '+lbl);
+}
+
+function updateProgress(){
+  var pct=Math.min(100,Math.round((raisedPKR/goalPKR)*100));
+  document.getElementById('progFill').style.width=pct+'%';
+  document.getElementById('pctLbl').textContent=pct+'% reached';
+  document.getElementById('raisedLbl').textContent='Rs. '+raisedPKR.toLocaleString();
+  document.getElementById('sTot').textContent='Rs. '+raisedPKR.toLocaleString();
+  document.getElementById('sDon').textContent=donorCount;
+  document.getElementById('sToday').textContent='Rs. '+todayPKR.toLocaleString();
+  document.getElementById('sGoal').textContent=pct+'%';
+}
+
+var dColors=[{bg:'#e8f4ef',fg:'#1a6b4a'},{bg:'#e8f0fb',fg:'#0062b8'},{bg:'#fef3dc',fg:'#7a4f00'},{bg:'#fce8f0',fg:'#8b1d4e'}];
+var dNames=['Ahmed K.','Zara M.','Bilal H.','Nadia S.','Tariq N.','Ayesha F.','Omar R.','Sana Q.'];
+function addDonorRow(amt,cur){
+  if(firstDonor){document.getElementById('donorList').innerHTML='';firstDonor=false;}
+  var n=dNames[Math.floor(Math.random()*dNames.length)];
+  var ini=n.split(' ').map(function(w){return w[0];}).join('');
+  var c=dColors[Math.floor(Math.random()*dColors.length)];
+  var amtStr=cur==='PKR'?'Rs. '+amt.toLocaleString():'$'+amt;
+  var row=document.createElement('div');row.className='donor-row';row.style.opacity='0';
+  row.innerHTML='<div class="dav" style="background:'+c.bg+';color:'+c.fg+';">'+ini+'</div><div><div class="dname">'+n+'</div><div class="dtime">just now</div></div><div class="damt">'+amtStr+'</div>';
+  var list=document.getElementById('donorList');
+  list.insertBefore(row,list.firstChild);
+  setTimeout(function(){row.style.transition='opacity 0.4s';row.style.opacity='1';},50);
+  if(list.children.length>6)list.removeChild(list.lastChild);
+}
+function addTxn(amt,cur,lbl){
+  var n=dNames[Math.floor(Math.random()*dNames.length)];
+  var amtStr=cur==='PKR'?'Rs. '+amt.toLocaleString():'$'+amt;
+  var tb=document.getElementById('txnBody');
+  if(tb.querySelector('td[colspan]'))tb.innerHTML='';
+  var tr=document.createElement('tr');
+  tr.innerHTML='<td>'+n+'</td><td>'+amtStr+'</td><td>'+lbl+'</td><td>just now</td><td><span class="sp sp-ok">Received</span></td>';
+  tb.insertBefore(tr,tb.firstChild);
+  if(tb.children.length>10)tb.removeChild(tb.lastChild);
+}
+
+function copyLink(){navigator.clipboard&&navigator.clipboard.writeText(document.getElementById('shareUrl').textContent);toast('Link copied to clipboard!');}
+
+function openGate(){
+  document.getElementById('gateOverlay').classList.add('open');
+  document.getElementById('loginErr').style.display='none';
+  document.getElementById('loginUser').value='';
+  document.getElementById('loginPass').value='';
+  setTimeout(function(){document.getElementById('loginUser').focus();},100);
+}
+function closeGate(){document.getElementById('gateOverlay').classList.remove('open');}
+
+function tryLogin(){
+  var now=Date.now();
+  if(now<lockUntil){toast('Too many attempts. Wait '+Math.ceil((lockUntil-now)/1000)+'s.');return;}
+  var u=document.getElementById('loginUser').value.trim();
+  var p=document.getElementById('loginPass').value;
+  if(u===adminUser&&p===adminPass){
+    attempts=0;
+    document.getElementById('gateOverlay').classList.remove('open');
+    document.getElementById('pubPage').style.display='none';
+    document.getElementById('adminPanel').classList.add('open');
+    window.scrollTo(0,0);
+  } else {
+    attempts++;
+    document.getElementById('loginErr').style.display='block';
+    if(attempts>=3){lockUntil=Date.now()+30000;toast('Locked for 30 seconds — security protection active.');}
+  }
+}
+
+function logout(){
+  document.getElementById('adminPanel').classList.remove('open');
+  document.getElementById('pubPage').style.display='block';
+  window.scrollTo(0,0);
+}
+
+function saveContent(){
+  document.getElementById('pubDesc').textContent=document.getElementById('eDesc').value;
+  goalPKR=parseInt(document.getElementById('eGoal').value)||200000;
+  document.getElementById('goalLbl').textContent='Rs. '+goalPKR.toLocaleString();
+  updateProgress();toast('Campaign updated!');
+}
+function saveBank(){
+  document.getElementById('bkTitle').textContent=document.getElementById('aBkTitle').value;
+  document.getElementById('bkNum').textContent=document.getElementById('aBkNum').value||'—';
+  document.getElementById('bkSwift').textContent=document.getElementById('aBkSwift').value;
+  toast('Bank details updated!');
+}
+function saveImpact(){
+  document.getElementById('imp1').textContent=parseInt(document.getElementById('eI1').value).toLocaleString();
+  document.getElementById('imp2').textContent=parseInt(document.getElementById('eI2').value).toLocaleString();
+  document.getElementById('imp3').textContent=parseInt(document.getElementById('eI3').value).toLocaleString();
+  toast('Impact stats updated!');
+}
+function genLink(){
+  var base=document.getElementById('baseDomain').value.replace(/\/$/,'');
+  var slug=document.getElementById('campSlug').value.trim();
+  var utm=document.getElementById('utmSrc').value.trim();
+  var link=base+'/'+slug;
+  if(utm)link+='?utm_source='+encodeURIComponent(utm)+'&utm_medium=share&utm_campaign=skfoundation';
+  document.getElementById('genLinkTxt').textContent=link;
+  document.getElementById('shareUrl').textContent=link;
+  document.getElementById('genBox').style.display='flex';
+  toast('Link generated!');
+}
+function copyGen(){navigator.clipboard&&navigator.clipboard.writeText(document.getElementById('genLinkTxt').textContent);toast('Copied!');}
+function checkStr(v){
+  var s=document.getElementById('pBar');var score=0;
+  if(v.length>=8)score++;if(/[A-Z]/.test(v))score++;if(/[0-9]/.test(v))score++;if(/[^A-Za-z0-9]/.test(v))score++;
+  var c=['#c0392b','#e07318','#2d9e6b','#1a6b4a'];
+  s.style.width=(score*25)+'%';s.style.background=c[score-1]||'#c0392b';
+}
+function changeCreds(){
+  var nu=document.getElementById('nUser').value.trim();
+  var np=document.getElementById('nPass').value;
+  var cp=document.getElementById('cPass').value;
+  if(!nu||!np){toast('Please fill all fields.');return;}
+  if(np!==cp){toast('Passwords do not match.');return;}
+  if(np.length<8){toast('Password must be 8+ characters.');return;}
+  adminUser=nu;adminPass=np;
+  document.getElementById('nUser').value='';document.getElementById('nPass').value='';document.getElementById('cPass').value='';
+  document.getElementById('pBar').style.width='0%';
+  toast('Credentials changed successfully!');
+}
+</script>
+</body>
+</html>
