@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SK-Foundation — Help the Needy</title>
-<meta name="description" content="SK-Foundation connects generous hearts to families in need across Pakistan. Donate via Easypaisa, JazzCash, card or PayPal.">
+<meta name="description" content="SK-Foundation connects generous hearts to families in need across Pakistan. Donate via Easypaisa, bank transfer or PayPal.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -14,7 +14,6 @@
   --green-light:#e8f4ef;
   --green-mid:#2d9e6b;
   --gold:#c9a84c;
-  --gold-light:#faf3e0;
   --text:#1a1a1a;
   --text-muted:#666;
   --text-hint:#999;
@@ -26,84 +25,93 @@
 }
 html{scroll-behavior:smooth;}
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
-a{color:inherit;text-decoration:none;}
 
-/* NAV */
-nav{position:sticky;top:0;z-index:100;background:rgba(250,250,248,0.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);padding:0 2rem;}
+nav{position:sticky;top:0;z-index:100;background:rgba(250,250,248,0.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);padding:0 2rem;}
 .nav-inner{max-width:980px;margin:0 auto;height:60px;display:flex;align-items:center;justify-content:space-between;}
 .nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;letter-spacing:0.04em;color:var(--green);}
 .nav-logo span{color:var(--gold);}
-.nav-tagline{font-size:12px;color:var(--text-muted);letter-spacing:0.06em;}
+.nav-tag{font-size:11px;color:var(--text-muted);letter-spacing:0.05em;}
 
-/* HERO */
-.hero{max-width:980px;margin:0 auto;padding:4rem 2rem 3rem;text-align:center;}
-.hero-eyebrow{display:inline-block;background:var(--green-light);color:var(--green);font-size:11px;font-weight:500;padding:5px 16px;border-radius:20px;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:1.5rem;}
-.hero h1{font-family:'Cormorant Garamond',serif;font-size:3.2rem;font-weight:700;line-height:1.15;color:var(--text);margin-bottom:1.25rem;}
+.hero{max-width:980px;margin:0 auto;padding:4rem 2rem 2.5rem;text-align:center;}
+.eyebrow{display:inline-block;background:var(--green-light);color:var(--green);font-size:11px;font-weight:500;padding:5px 16px;border-radius:20px;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:1.25rem;}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:700;line-height:1.15;color:var(--text);margin-bottom:1rem;}
 .hero h1 em{color:var(--green);font-style:normal;}
-.hero p{font-size:1.05rem;color:var(--text-muted);max-width:580px;margin:0 auto 2.5rem;line-height:1.8;}
-.hero-divider{width:48px;height:2px;background:var(--gold);margin:0 auto 2.5rem;}
+.hero-div{width:44px;height:2px;background:var(--gold);margin:0 auto 1.25rem;}
+.hero p{font-size:1rem;color:var(--text-muted);max-width:560px;margin:0 auto;line-height:1.8;}
 
-/* PROGRESS */
-.section{max-width:980px;margin:0 auto;padding:0 2rem 2rem;}
-.progress-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem 2rem;margin-bottom:1.5rem;}
-.prog-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.75rem;}
-.prog-title{font-size:14px;font-weight:500;color:var(--text);}
-.prog-pct{font-size:13px;color:var(--text-muted);}
-.prog-bg{background:#ece9e4;border-radius:99px;height:8px;overflow:hidden;margin-bottom:0.75rem;}
+.section{max-width:980px;margin:0 auto;padding:0 2rem 1.5rem;}
+
+.prog-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem 2rem;margin-bottom:1.25rem;}
+.prog-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.6rem;}
+.prog-lbl{font-size:13px;font-weight:500;}
+.prog-pct{font-size:12px;color:var(--text-muted);}
+.prog-bg{background:#ece9e4;border-radius:99px;height:8px;overflow:hidden;margin-bottom:0.6rem;}
 .prog-fill{height:100%;border-radius:99px;background:var(--green-mid);transition:width 1.2s cubic-bezier(.4,0,.2,1);}
-.prog-row{display:flex;justify-content:space-between;font-size:13px;color:var(--text-muted);}
-.prog-raised{font-size:1.5rem;font-weight:500;color:var(--text);}
+.prog-row{display:flex;justify-content:space-between;font-size:12px;color:var(--text-muted);}
+.prog-raised{font-size:1.4rem;font-weight:500;color:var(--text);}
 
-/* GRID */
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:1.25rem;}
-@media(max-width:640px){.two-col{grid-template-columns:1fr;}.hero h1{font-size:2.2rem;}}
+@media(max-width:640px){.two-col{grid-template-columns:1fr;}.hero h1{font-size:2rem;}.section{padding:0 1rem 1.25rem;}.hero{padding:2.5rem 1rem 2rem;}}
 .card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;}
-.card-head{font-size:13px;font-weight:500;color:var(--text);margin-bottom:1.1rem;display:flex;align-items:center;gap:8px;}
-.icon-tag{width:28px;height:28px;border-radius:7px;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;flex-shrink:0;}
+.card-head{font-size:13px;font-weight:500;margin-bottom:1rem;display:flex;align-items:center;gap:8px;}
+.itag{width:28px;height:28px;border-radius:7px;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;flex-shrink:0;}
 
-/* AMOUNTS */
-.amt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:0.9rem;}
-.amt-btn{background:#f5f5f3;border:1px solid var(--border);border-radius:var(--radius-sm);padding:9px 4px;font-size:13px;font-weight:500;color:var(--text);cursor:pointer;text-align:center;font-family:'DM Sans',sans-serif;transition:all 0.12s;}
+.amt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:0.85rem;}
+.amt-btn{background:#f5f5f3;border:1px solid var(--border);border-radius:var(--radius-sm);padding:9px 4px;font-size:13px;font-weight:500;cursor:pointer;text-align:center;font-family:'DM Sans',sans-serif;transition:all 0.12s;color:var(--text);}
 .amt-btn:hover{border-color:#aaa;}
 .amt-btn.on{background:var(--green-light);color:var(--green);border-color:var(--green-mid);}
-.cust{display:flex;align-items:center;border:1px solid var(--border);border-radius:var(--radius-sm);overflow:hidden;margin-bottom:0.9rem;}
+.cust{display:flex;align-items:center;border:1px solid var(--border);border-radius:var(--radius-sm);overflow:hidden;margin-bottom:0.85rem;}
 .ctag{padding:0 11px;font-size:13px;color:var(--text-muted);background:#f5f5f3;border-right:1px solid var(--border);height:38px;display:flex;align-items:center;flex-shrink:0;}
 .cust input{flex:1;border:none;outline:none;padding:0 11px;font-size:13px;height:38px;background:transparent;color:var(--text);font-family:'DM Sans',sans-serif;}
 
-/* BUTTONS */
-.dbtn{width:100%;padding:12px;border-radius:var(--radius-sm);font-size:14px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;border:none;transition:opacity 0.15s,transform 0.1s;margin-bottom:8px;letter-spacing:0.01em;}
+.dbtn{width:100%;padding:12px;border-radius:var(--radius-sm);font-size:14px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;border:none;transition:opacity 0.15s,transform 0.1s;margin-bottom:8px;}
 .dbtn:last-child{margin-bottom:0;}
 .dbtn:active{transform:scale(0.98);}
-.dbtn:hover{opacity:0.9;}
+.dbtn:hover{opacity:0.88;}
 .bg-green{background:var(--green);color:#fff;}
-.bg-orange{background:#e07318;color:#fff;}
-.bg-blue{background:#0062b8;color:#fff;}
-.bg-purple{background:#5e3ea1;color:#fff;}
 .bg-ghost{background:transparent;color:var(--text);border:1px solid var(--border);}
 
-/* TABS */
 .tab-row{display:flex;gap:6px;margin-bottom:1rem;flex-wrap:wrap;}
 .tbtn{padding:5px 13px;border-radius:20px;font-size:12px;font-weight:500;cursor:pointer;border:1px solid var(--border);background:transparent;color:var(--text-muted);font-family:'DM Sans',sans-serif;transition:all 0.12s;}
 .tbtn.on{background:var(--green-light);color:var(--green);border-color:var(--green-mid);}
-.irow{display:flex;justify-content:space-between;font-size:13px;padding:6px 0;border-bottom:1px solid var(--border);}
+
+.irow{display:flex;justify-content:space-between;font-size:13px;padding:7px 0;border-bottom:1px solid var(--border);}
 .irow:last-child{border-bottom:none;}
 .ilb{color:var(--text-muted);}
-.ivl{font-weight:500;}
+.ivl{font-weight:500;color:var(--text);}
 
-/* SHARE */
-.share-box{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;margin-bottom:1.25rem;}
-.link-strip{background:#f5f5f3;border:1px solid var(--border);border-radius:var(--radius-sm);padding:0.8rem 1rem;display:flex;align-items:center;gap:10px;margin-bottom:1rem;}
+/* EASYPAISA PAYMENT MODAL */
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:300;align-items:center;justify-content:center;padding:1rem;}
+.modal-bg.open{display:flex;}
+.modal{background:var(--white);border-radius:var(--radius);padding:2rem;max-width:400px;width:100%;border:1px solid var(--border);}
+.modal-title{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--green);margin-bottom:0.35rem;}
+.modal-sub{font-size:13px;color:var(--text-muted);margin-bottom:1.25rem;line-height:1.6;}
+.ep-amount-display{background:var(--green-light);border:1px solid var(--green-mid);border-radius:var(--radius-sm);padding:1rem;text-align:center;margin-bottom:1.25rem;}
+.ep-amt-label{font-size:12px;color:var(--green);margin-bottom:4px;}
+.ep-amt-value{font-size:2rem;font-weight:500;color:var(--green);font-family:'Cormorant Garamond',serif;}
+.ep-steps{margin-bottom:1.25rem;}
+.ep-step{display:flex;gap:10px;align-items:flex-start;margin-bottom:0.9rem;}
+.ep-num{width:24px;height:24px;border-radius:50%;background:var(--green);color:#fff;font-size:12px;font-weight:500;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+.ep-step-text{font-size:13px;color:var(--text);line-height:1.6;}
+.ep-step-text strong{color:var(--green);}
+.ep-number-box{background:#f5f5f3;border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 14px;font-size:1.1rem;font-weight:500;color:var(--text);text-align:center;letter-spacing:0.08em;margin:6px 0;font-family:monospace;}
+.ep-copy-btn{width:100%;padding:10px;border-radius:var(--radius-sm);background:var(--green-light);color:var(--green);border:1px solid var(--green-mid);font-size:13px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;margin-bottom:8px;}
+.ep-copy-btn:active{transform:scale(0.98);}
+.ep-confirm-btn{width:100%;padding:11px;border-radius:var(--radius-sm);background:var(--green);color:#fff;border:none;font-size:14px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;}
+.ep-confirm-btn:active{transform:scale(0.98);}
+.ep-close{width:100%;padding:9px;border-radius:var(--radius-sm);background:transparent;color:var(--text-muted);border:1px solid var(--border);font-size:13px;cursor:pointer;font-family:'DM Sans',sans-serif;margin-top:8px;}
+
+.share-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;margin-bottom:1.25rem;}
+.link-strip{background:#f5f5f3;border:1px solid var(--border);border-radius:var(--radius-sm);padding:0.75rem 1rem;display:flex;align-items:center;gap:10px;margin-bottom:1rem;}
 .link-txt{flex:1;font-size:12px;color:var(--text-muted);word-break:break-all;font-family:monospace;}
-.copy-btn{padding:6px 14px;border-radius:var(--radius-sm);border:1px solid var(--border);background:var(--white);font-size:12px;font-weight:500;cursor:pointer;color:var(--text);white-space:nowrap;}
+.copy-btn{padding:6px 14px;border-radius:var(--radius-sm);border:1px solid var(--border);background:var(--white);font-size:12px;font-weight:500;cursor:pointer;white-space:nowrap;}
 .share-btns{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;}
 
-/* IMPACT */
-.impact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1rem;}
+.impact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:0.9rem;}
 @media(max-width:480px){.impact-grid{grid-template-columns:1fr 1fr;}}
 .imp-num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--green);}
-.imp-lbl{font-size:12px;color:var(--text-muted);margin-top:2px;line-height:1.4;}
+.imp-lbl{font-size:12px;color:var(--text-muted);margin-top:2px;}
 
-/* DONORS */
 .donor-row{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--border);}
 .donor-row:last-child{border-bottom:none;}
 .dav{width:33px;height:33px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:500;flex-shrink:0;}
@@ -111,46 +119,44 @@ nav{position:sticky;top:0;z-index:100;background:rgba(250,250,248,0.95);backdrop
 .dtime{font-size:11px;color:var(--text-hint);}
 .damt{margin-left:auto;font-size:13px;font-weight:500;color:var(--green);}
 
-/* TOAST */
 .toast-area{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);z-index:999;pointer-events:none;}
 .toast{display:none;background:var(--green);color:#fff;padding:11px 24px;border-radius:30px;font-size:13px;font-weight:500;white-space:nowrap;}
 .toast.show{display:block;animation:fup 0.3s ease;}
 @keyframes fup{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 
-/* FOOTER */
-footer{text-align:center;padding:2.5rem 1rem 3rem;font-size:12px;color:var(--text-hint);border-top:1px solid var(--border);margin-top:2rem;}
-footer span{cursor:pointer;}
+footer{text-align:center;padding:2.5rem 1rem 3rem;font-size:12px;color:var(--text-hint);border-top:1px solid var(--border);margin-top:1rem;}
 
 /* ADMIN GATE */
-.overlay{display:none;position:fixed;inset:0;background:rgba(10,10,10,0.7);z-index:200;align-items:center;justify-content:center;padding:1rem;}
+.overlay{display:none;position:fixed;inset:0;background:rgba(5,5,5,0.75);z-index:200;align-items:center;justify-content:center;padding:1rem;}
 .overlay.open{display:flex;}
-.gate-card{background:var(--white);border-radius:var(--radius);padding:2rem;max-width:380px;width:100%;border:1px solid var(--border);}
-.gate-title{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;color:var(--text);margin-bottom:0.4rem;}
+.gate{background:var(--white);border-radius:var(--radius);padding:2rem;max-width:360px;width:100%;border:1px solid var(--border);}
+.gate-title{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;color:var(--green);margin-bottom:0.35rem;}
 .gate-sub{font-size:13px;color:var(--text-muted);margin-bottom:1.5rem;line-height:1.6;}
-.flbl{font-size:12px;color:var(--text-muted);margin-bottom:4px;margin-top:12px;}
+.flbl{font-size:12px;color:var(--text-muted);margin-bottom:4px;margin-top:10px;}
 .finp{width:100%;border:1px solid var(--border);border-radius:var(--radius-sm);padding:9px 12px;font-size:13px;background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;outline:none;}
 .finp:focus{border-color:#aaa;}
 .err{font-size:12px;color:#c0392b;margin-top:8px;display:none;}
 .gate-btns{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:1.2rem;}
 
 /* ADMIN PANEL */
-.admin-wrap{display:none;max-width:980px;margin:0 auto;padding:1.5rem 2rem 3rem;}
-.admin-wrap.open{display:block;}
-.adm-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid var(--border);}
+.adm{display:none;max-width:980px;margin:0 auto;padding:1.5rem 2rem 3rem;}
+.adm.open{display:block;}
+@media(max-width:640px){.adm{padding:1rem;}}
+.adm-hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid var(--border);}
 .adm-title{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:700;color:var(--green);}
 .adm-sub{font-size:12px;color:var(--text-muted);margin-top:2px;}
 .logout-btn{padding:7px 16px;border-radius:var(--radius-sm);border:1px solid var(--border);background:transparent;font-size:13px;font-weight:500;cursor:pointer;color:var(--text-muted);font-family:'DM Sans',sans-serif;}
 
 .stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:1.5rem;}
 @media(max-width:600px){.stats-row{grid-template-columns:1fr 1fr;}}
-.stat-card{background:#f5f5f3;border-radius:var(--radius-sm);padding:1rem;}
-.stat-lbl{font-size:11px;color:var(--text-muted);margin-bottom:4px;text-transform:uppercase;letter-spacing:0.06em;}
+.stat{background:#f5f5f3;border-radius:var(--radius-sm);padding:1rem;}
+.stat-lbl{font-size:11px;color:var(--text-muted);margin-bottom:4px;text-transform:uppercase;letter-spacing:0.05em;}
 .stat-val{font-size:1.3rem;font-weight:500;color:var(--text);}
 
 .adm-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;}
 @media(max-width:600px){.adm-grid{grid-template-columns:1fr;}}
 .adm-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.4rem;}
-.adm-card-title{font-size:14px;font-weight:500;color:var(--text);margin-bottom:1rem;}
+.adm-card-title{font-size:14px;font-weight:500;margin-bottom:1rem;}
 .ef{width:100%;border:1px solid var(--border);border-radius:var(--radius-sm);padding:8px 11px;font-size:13px;background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;outline:none;margin-bottom:8px;}
 textarea.ef{resize:vertical;min-height:80px;line-height:1.6;}
 .ef:focus{border-color:#aaa;}
@@ -159,8 +165,6 @@ textarea.ef{resize:vertical;min-height:80px;line-height:1.6;}
 
 .tog-row{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid var(--border);font-size:13px;}
 .tog-row:last-child{border-bottom:none;}
-.tog-lbl{color:var(--text);}
-.tog-sub{font-size:11px;color:var(--text-hint);margin-top:1px;}
 .tog{width:36px;height:20px;border-radius:10px;background:var(--border);position:relative;cursor:pointer;flex-shrink:0;transition:background 0.2s;border:none;}
 .tog.on{background:var(--green-mid);}
 .tog::after{content:'';position:absolute;width:14px;height:14px;border-radius:50%;background:#fff;top:3px;left:3px;transition:left 0.2s;}
@@ -168,18 +172,16 @@ textarea.ef{resize:vertical;min-height:80px;line-height:1.6;}
 
 .txn-table{width:100%;border-collapse:collapse;font-size:13px;}
 .txn-table th{text-align:left;font-weight:500;color:var(--text-muted);font-size:11px;text-transform:uppercase;letter-spacing:0.06em;padding:0 0 8px;border-bottom:1px solid var(--border);}
-.txn-table td{padding:9px 0;border-bottom:1px solid var(--border);color:var(--text);}
+.txn-table td{padding:9px 0;border-bottom:1px solid var(--border);}
 .txn-table tr:last-child td{border-bottom:none;}
 .sp{display:inline-block;padding:2px 9px;border-radius:20px;font-size:11px;font-weight:500;}
 .sp-ok{background:var(--green-light);color:var(--green);}
 .sp-pend{background:#fef9ec;color:#9a6b00;}
 
 .pass-bar{height:4px;border-radius:2px;margin-top:4px;transition:width 0.3s,background 0.3s;}
-
-/* ANIMATIONS */
-@keyframes fadein{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
-.hero,.progress-card,.card,.share-box{animation:fadein 0.6s ease both;}
-.card:nth-child(2){animation-delay:0.08s;}
+.adm-ep-box{background:var(--green-light);border:1px solid var(--green-mid);border-radius:var(--radius-sm);padding:1rem;margin-bottom:1rem;text-align:center;}
+.adm-ep-num{font-size:1.4rem;font-weight:500;color:var(--green);letter-spacing:0.06em;font-family:monospace;}
+.adm-ep-lbl{font-size:11px;color:var(--green);margin-top:2px;}
 </style>
 </head>
 <body>
@@ -188,26 +190,24 @@ textarea.ef{resize:vertical;min-height:80px;line-height:1.6;}
 <nav>
   <div class="nav-inner">
     <div class="nav-logo">SK<span>-</span>FOUNDATION</div>
-    <div class="nav-tagline">Serving humanity since today</div>
+    <div class="nav-tag">Serving humanity · Pakistan</div>
   </div>
 </nav>
 
 <!-- PUBLIC PAGE -->
 <div id="pubPage">
-
 <div class="hero">
-  <div class="hero-eyebrow">100% transparent &nbsp;·&nbsp; anonymous trustee &nbsp;·&nbsp; verified cause</div>
+  <div class="eyebrow">100% transparent &nbsp;·&nbsp; anonymous trustee &nbsp;·&nbsp; verified cause</div>
   <h1>Every Rupee You Give<br>Feeds a <em>Real Family</em></h1>
-  <div class="hero-divider"></div>
-  <p id="pubDesc">In Pakistan, millions of families cannot afford food, medicine, or shelter. SK-Foundation bridges generous hearts — local and worldwide — directly to those who need help most. No overhead. No middlemen. Every rupee and every dollar reaches a real family in need. Your donation, however small, creates change that lasts a lifetime.</p>
+  <div class="hero-div"></div>
+  <p id="pubDesc">In Pakistan, millions of families cannot afford food, medicine, or shelter. SK-Foundation bridges generous hearts — local and worldwide — directly to those who need help most. No overhead. No middlemen. Every rupee reaches a real family in need. Your donation, however small, creates change that lasts a lifetime.</p>
 </div>
 
 <div class="section">
 
-  <!-- PROGRESS -->
-  <div class="progress-card">
+  <div class="prog-card">
     <div class="prog-top">
-      <span class="prog-title">Fundraising progress</span>
+      <span class="prog-lbl">Fundraising progress</span>
       <span class="prog-pct" id="pctLbl">0% reached</span>
     </div>
     <div class="prog-bg"><div class="prog-fill" id="progFill" style="width:0%"></div></div>
@@ -217,13 +217,12 @@ textarea.ef{resize:vertical;min-height:80px;line-height:1.6;}
     </div>
   </div>
 
-  <!-- DONATION CARDS -->
   <div class="two-col">
-    <!-- LOCAL -->
+    <!-- LOCAL EASYPAISA -->
     <div class="card">
       <div class="card-head">
-        <span class="icon-tag" style="background:#e8f4ef;color:#1a6b4a;">EP</span>
-        Local — Easypaisa / JazzCash
+        <span class="itag" style="background:#e8f4ef;color:#1a6b4a;">EP</span>
+        Donate via Easypaisa
       </div>
       <div class="amt-grid" id="lGrid">
         <button class="amt-btn on" onclick="selAmt('l',100,this)">Rs. 100</button>
@@ -233,72 +232,67 @@ textarea.ef{resize:vertical;min-height:80px;line-height:1.6;}
         <button class="amt-btn" onclick="selAmt('l',5000,this)">Rs. 5,000</button>
         <button class="amt-btn" onclick="selAmt('l',0,this)">Custom</button>
       </div>
-      <div class="cust" id="lCust" style="display:none;"><span class="ctag">PKR</span><input type="number" placeholder="Enter amount" id="lCustVal" min="10"></div>
-      <button class="dbtn bg-green" onclick="donate('ep')">Donate via Easypaisa</button>
-      <button class="dbtn bg-orange" onclick="donate('jc')">Donate via JazzCash</button>
+      <div class="cust" id="lCust" style="display:none;">
+        <span class="ctag">PKR</span>
+        <input type="number" placeholder="Enter amount" id="lCustVal" min="10">
+      </div>
+      <button class="dbtn bg-green" onclick="openEPModal()">Donate Now — Easypaisa</button>
+      <div style="margin-top:10px;background:#f5f5f3;border-radius:var(--radius-sm);padding:10px 12px;font-size:12px;color:var(--text-muted);line-height:1.7;">
+        JazzCash users can also send to this Easypaisa number directly from JazzCash — both networks are compatible.
+      </div>
     </div>
+
     <!-- INTERNATIONAL -->
     <div class="card">
       <div class="card-head">
-        <span class="icon-tag" style="background:#e8f0fb;color:#0062b8;">$</span>
+        <span class="itag" style="background:#e8f0fb;color:#0062b8;">$</span>
         International donors
       </div>
       <div class="tab-row">
-        <button class="tbtn on" onclick="switchTab('pp',this)">PayPal</button>
-        <button class="tbtn" onclick="switchTab('cd',this)">Card</button>
-        <button class="tbtn" onclick="switchTab('bk',this)">Bank wire</button>
+        <button class="tbtn on" onclick="switchTab('iban',this)">Bank / IBAN</button>
+        <button class="tbtn" onclick="switchTab('wise',this)">Wise</button>
+        <button class="tbtn" onclick="switchTab('pp',this)">PayPal</button>
       </div>
-      <div id="tab-pp">
-        <div class="amt-grid" id="iGrid">
-          <button class="amt-btn on" onclick="selAmt('i',2,this)">$2</button>
-          <button class="amt-btn" onclick="selAmt('i',5,this)">$5</button>
-          <button class="amt-btn" onclick="selAmt('i',10,this)">$10</button>
-          <button class="amt-btn" onclick="selAmt('i',25,this)">$25</button>
-          <button class="amt-btn" onclick="selAmt('i',50,this)">$50</button>
-          <button class="amt-btn" onclick="selAmt('i',0,this)">Custom</button>
-        </div>
-        <div class="cust" id="iCust" style="display:none;"><span class="ctag">USD</span><input type="number" placeholder="Enter amount" id="iCustVal" min="1"></div>
-        <button class="dbtn bg-blue" onclick="donate('pp')">Donate via PayPal</button>
+      <div id="tab-iban">
+        <div style="font-size:12px;color:var(--text-muted);margin-bottom:10px;line-height:1.6;">Send directly to SK-Foundation's Easypaisa bank account via international wire:</div>
+        <div class="irow"><span class="ilb">Bank name</span><span class="ivl">Telenor Microfinance Bank (Easypaisa)</span></div>
+        <div class="irow"><span class="ilb">Account title</span><span class="ivl" id="bkTitle">SK-Foundation</span></div>
+        <div class="irow"><span class="ilb">Account / IBAN</span><span class="ivl" id="bkIBAN">Enter your Easypaisa IBAN in admin</span></div>
+        <div class="irow"><span class="ilb">SWIFT code</span><span class="ivl" id="bkSwift">TELNPKKA</span></div>
+        <button class="dbtn bg-ghost" style="margin-top:10px;" onclick="copyBankDetails()">Copy bank details</button>
       </div>
-      <div id="tab-cd" style="display:none;">
-        <div style="display:flex;flex-direction:column;gap:7px;margin-bottom:0.9rem;">
-          <input type="text" placeholder="Card number" class="finp">
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:7px;">
-            <input type="text" placeholder="MM / YY" class="finp">
-            <input type="text" placeholder="CVC" class="finp">
-          </div>
-        </div>
-        <button class="dbtn bg-purple" onclick="donate('cd')">Pay securely</button>
+      <div id="tab-wise" style="display:none;">
+        <div style="font-size:12px;color:var(--text-muted);margin-bottom:10px;line-height:1.6;">Send via Wise (cheapest for international transfers — low fees, best exchange rate):</div>
+        <div class="irow"><span class="ilb">Wise account</span><span class="ivl" id="wiseAcc">Add your Wise email in admin</span></div>
+        <div class="irow"><span class="ilb">Currency</span><span class="ivl">PKR or USD accepted</span></div>
+        <div style="margin-top:10px;font-size:12px;color:var(--text-muted);">Don't have Wise? Sign up free at wise.com — best rates for Pakistan transfers.</div>
       </div>
-      <div id="tab-bk" style="display:none;">
-        <div style="margin-bottom:0.9rem;">
-          <div class="irow"><span class="ilb">Bank name</span><span class="ivl" id="bkName">HBL Pakistan</span></div>
-          <div class="irow"><span class="ilb">Account title</span><span class="ivl" id="bkTitle">SK-Foundation Trust</span></div>
-          <div class="irow"><span class="ilb">Account no.</span><span class="ivl" id="bkNum">—</span></div>
-          <div class="irow"><span class="ilb">SWIFT</span><span class="ivl" id="bkSwift">HABBPKKA</span></div>
-        </div>
-        <button class="dbtn bg-ghost" onclick="toast('Bank details copied!')">Copy details</button>
+      <div id="tab-pp" style="display:none;">
+        <div style="font-size:12px;color:var(--text-muted);margin-bottom:10px;line-height:1.6;">Send via PayPal to our foundation email:</div>
+        <div class="irow"><span class="ilb">PayPal email</span><span class="ivl" id="ppEmail">Add your PayPal email in admin</span></div>
+        <div style="margin-top:10px;font-size:12px;color:var(--text-muted);">Please use "Sending to a friend" option to avoid PayPal fees.</div>
+        <button class="dbtn bg-ghost" style="margin-top:10px;" onclick="copyPP()">Copy PayPal email</button>
       </div>
     </div>
   </div>
 
   <!-- SHARE -->
-  <div class="share-box">
-    <div style="font-size:14px;font-weight:500;margin-bottom:1rem;">Share this cause — every share reaches more families</div>
+  <div class="share-card">
+    <div style="font-size:14px;font-weight:500;margin-bottom:0.9rem;">Share this cause — every share reaches more families</div>
     <div class="link-strip">
-      <span class="link-txt" id="shareUrl">https://sk-foundation.pk/donate</span>
+      <span class="link-txt" id="shareUrl">https://SK-Foundation-Charity.github.io</span>
       <button class="copy-btn" onclick="copyLink()">Copy link</button>
     </div>
     <div class="share-btns">
-      <button class="dbtn bg-ghost" style="margin:0;font-size:13px;" onclick="toast('Opening WhatsApp...')">WhatsApp</button>
-      <button class="dbtn bg-ghost" style="margin:0;font-size:13px;" onclick="toast('Opening Twitter/X...')">Twitter / X</button>
-      <button class="dbtn bg-ghost" style="margin:0;font-size:13px;" onclick="toast('Opening Facebook...')">Facebook</button>
+      <button class="dbtn bg-ghost" style="margin:0;font-size:13px;" onclick="shareWA()">WhatsApp</button>
+      <button class="dbtn bg-ghost" style="margin:0;font-size:13px;" onclick="shareTwitter()">Twitter / X</button>
+      <button class="dbtn bg-ghost" style="margin:0;font-size:13px;" onclick="shareFB()">Facebook</button>
     </div>
   </div>
 
   <!-- IMPACT -->
   <div class="card" style="margin-bottom:1.25rem;">
-    <div style="font-size:14px;font-weight:500;margin-bottom:0.5rem;">Your impact so far</div>
+    <div style="font-size:14px;font-weight:500;margin-bottom:0.4rem;">Your impact so far</div>
     <div class="impact-grid">
       <div><div class="imp-num" id="imp1">0</div><div class="imp-lbl">Families helped</div></div>
       <div><div class="imp-num" id="imp2">0</div><div class="imp-lbl">Meals provided</div></div>
@@ -310,25 +304,60 @@ textarea.ef{resize:vertical;min-height:80px;line-height:1.6;}
   <div class="card">
     <div style="font-size:14px;font-weight:500;margin-bottom:0.75rem;">Recent donors</div>
     <div id="donorList">
-      <div style="font-size:13px;color:#999;padding:1rem 0;text-align:center;">Be the first to donate — start the movement.</div>
+      <div style="font-size:13px;color:#aaa;padding:1rem 0;text-align:center;">Be the first — start the movement.</div>
     </div>
   </div>
 
 </div>
 
 <footer>
-  <p>SK-Foundation &nbsp;·&nbsp; Serving Pakistan's most vulnerable families</p>
-  <p style="margin-top:6px;">All funds managed by an anonymous trustee &nbsp;·&nbsp; 100% reach guarantee</p>
-  <p style="margin-top:12px;"><span id="adminTrigger" onclick="openGate()" title="">&#8203;</span></p>
+  SK-Foundation &nbsp;·&nbsp; Serving Pakistan's most vulnerable families<br>
+  <span style="margin-top:6px;display:block;">All funds managed by an anonymous trustee &nbsp;·&nbsp; 100% reach guarantee</span>
+  <span id="adminTrigger" onclick="openGate()" style="cursor:default;user-select:none;color:transparent;font-size:10px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 </footer>
-
 </div><!-- /pubPage -->
 
-<!-- ADMIN GATE OVERLAY -->
+<!-- EASYPAISA PAYMENT MODAL -->
+<div class="modal-bg" id="epModal">
+  <div class="modal">
+    <div class="modal-title">Donate via Easypaisa</div>
+    <div class="modal-sub">Send your donation directly to SK-Foundation's Easypaisa account. Simple, instant, secure.</div>
+    <div class="ep-amount-display">
+      <div class="ep-amt-label">Your donation amount</div>
+      <div class="ep-amt-value" id="epAmtDisplay">Rs. 100</div>
+    </div>
+    <div class="ep-steps">
+      <div class="ep-step">
+        <div class="ep-num">1</div>
+        <div class="ep-step-text">Open your <strong>Easypaisa app</strong> or dial <strong>*786#</strong> on any mobile</div>
+      </div>
+      <div class="ep-step">
+        <div class="ep-num">2</div>
+        <div class="ep-step-text">Select <strong>Send Money</strong> and enter this number:</div>
+      </div>
+    </div>
+    <div class="ep-number-box" id="epNumDisplay">0312-9111424</div>
+    <button class="ep-copy-btn" onclick="copyEPNum()">Copy number</button>
+    <div class="ep-steps" style="margin-top:12px;">
+      <div class="ep-step">
+        <div class="ep-num">3</div>
+        <div class="ep-step-text">Enter amount: <strong id="epAmtStep">Rs. 100</strong> and confirm</div>
+      </div>
+      <div class="ep-step">
+        <div class="ep-num">4</div>
+        <div class="ep-step-text">In the <strong>Reference/Note</strong> field write: <strong>SKF-Donation</strong></div>
+      </div>
+    </div>
+    <button class="ep-confirm-btn" onclick="confirmDonation()">I have sent the donation</button>
+    <button class="ep-close" onclick="closeEPModal()">Cancel</button>
+  </div>
+</div>
+
+<!-- ADMIN GATE -->
 <div class="overlay" id="gateOverlay">
-  <div class="gate-card">
+  <div class="gate">
     <div class="gate-title">Secure access</div>
-    <div class="gate-sub">Restricted area. Unauthorised access attempts are logged and monitored.</div>
+    <div class="gate-sub">Restricted area. All access attempts are monitored and logged.</div>
     <div class="flbl">Username</div>
     <input type="text" class="finp" id="loginUser" placeholder="Username" autocomplete="off">
     <div class="flbl">Password</div>
@@ -338,52 +367,54 @@ textarea.ef{resize:vertical;min-height:80px;line-height:1.6;}
       <button class="dbtn bg-ghost" style="margin:0;" onclick="closeGate()">Cancel</button>
       <button class="dbtn bg-green" style="margin:0;" onclick="tryLogin()">Enter</button>
     </div>
-    <p style="margin-top:1rem;font-size:11px;color:#aaa;line-height:1.7;">
-      Default — Username: <code>boss</code> &nbsp; Password: <code>SKF@786secure</code><br>
-      <span style="color:#c0392b;">Change credentials immediately after first login.</span>
-    </p>
   </div>
 </div>
 
 <!-- ADMIN PANEL -->
-<div class="admin-wrap" id="adminPanel">
-  <div class="adm-header">
+<div class="adm" id="adminPanel">
+  <div class="adm-hdr">
     <div>
       <div class="adm-title">SK-Foundation — Control Panel</div>
-      <div class="adm-sub">Full control &nbsp;·&nbsp; Your identity is hidden from all donors</div>
+      <div class="adm-sub">Full control &nbsp;·&nbsp; Your identity is completely hidden from donors</div>
     </div>
     <button class="logout-btn" onclick="logout()">Log out</button>
   </div>
 
   <div class="stats-row">
-    <div class="stat-card"><div class="stat-lbl">Total raised</div><div class="stat-val" id="sTot">Rs. 0</div></div>
-    <div class="stat-card"><div class="stat-lbl">Total donors</div><div class="stat-val" id="sDon">0</div></div>
-    <div class="stat-card"><div class="stat-lbl">Today</div><div class="stat-val" id="sToday">Rs. 0</div></div>
-    <div class="stat-card"><div class="stat-lbl">Goal progress</div><div class="stat-val" id="sGoal">0%</div></div>
+    <div class="stat"><div class="stat-lbl">Total raised</div><div class="stat-val" id="sTot">Rs. 0</div></div>
+    <div class="stat"><div class="stat-lbl">Total donors</div><div class="stat-val" id="sDon">0</div></div>
+    <div class="stat"><div class="stat-lbl">Today</div><div class="stat-val" id="sToday">Rs. 0</div></div>
+    <div class="stat"><div class="stat-lbl">Goal progress</div><div class="stat-val" id="sGoal">0%</div></div>
+  </div>
+
+  <div class="adm-card" style="margin-bottom:1rem;">
+    <div class="adm-card-title">Your Easypaisa account — receiving donations</div>
+    <div class="adm-ep-box">
+      <div class="adm-ep-lbl">Donations are sent directly to this number</div>
+      <div class="adm-ep-num">0312-9111424</div>
+      <div class="adm-ep-lbl" style="margin-top:4px;">Telenor Microfinance Bank (Easypaisa)</div>
+    </div>
+    <div style="font-size:13px;color:var(--text-muted);line-height:1.7;">Every time a donor clicks "I have sent the donation", you receive an Easypaisa transfer directly. Check your Easypaisa app for incoming payments. JazzCash donors can also transfer directly to this number.</div>
   </div>
 
   <div class="adm-grid">
     <div class="adm-card">
       <div class="adm-card-title">Edit campaign</div>
       <div class="flbl">Campaign description</div>
-      <textarea class="ef" id="eDesc">In Pakistan, millions of families cannot afford food, medicine, or shelter. SK-Foundation bridges generous hearts — local and worldwide — directly to those who need help most. No overhead. No middlemen. Every rupee and every dollar reaches a real family in need. Your donation, however small, creates change that lasts a lifetime.</textarea>
+      <textarea class="ef" id="eDesc">In Pakistan, millions of families cannot afford food, medicine, or shelter. SK-Foundation bridges generous hearts — local and worldwide — directly to those who need help most. No overhead. No middlemen. Every rupee reaches a real family in need. Your donation, however small, creates change that lasts a lifetime.</textarea>
       <div class="flbl">Fundraising goal (PKR)</div>
       <input class="ef" id="eGoal" type="number" value="200000">
       <button class="save-btn" onclick="saveContent()">Save changes</button>
     </div>
     <div class="adm-card">
-      <div class="adm-card-title">Payment account details</div>
-      <div class="flbl">Easypaisa number</div>
-      <input class="ef" id="epNum" placeholder="03XX-XXXXXXX">
-      <div class="flbl">JazzCash number</div>
-      <input class="ef" id="jcNum" placeholder="03XX-XXXXXXX">
-      <div class="flbl">Bank account title</div>
-      <input class="ef" id="aBkTitle" value="SK-Foundation Trust">
-      <div class="flbl">Account number</div>
-      <input class="ef" id="aBkNum" placeholder="Your bank account number">
-      <div class="flbl">SWIFT code</div>
-      <input class="ef" id="aBkSwift" value="HABBPKKA">
-      <button class="save-btn" onclick="saveBank()">Save bank details</button>
+      <div class="adm-card-title">International payment details</div>
+      <div class="flbl">Easypaisa IBAN (for bank wire)</div>
+      <input class="ef" id="aIBAN" placeholder="PK00TMFB0000000000000000">
+      <div class="flbl">Wise email</div>
+      <input class="ef" id="aWise" placeholder="your@email.com">
+      <div class="flbl">PayPal email</div>
+      <input class="ef" id="aPP" placeholder="your@email.com">
+      <button class="save-btn" onclick="saveIntl()">Save details</button>
     </div>
   </div>
 
@@ -400,11 +431,7 @@ textarea.ef{resize:vertical;min-height:80px;line-height:1.6;}
     </div>
     <div class="adm-card">
       <div class="adm-card-title">Shareable link generator</div>
-      <div class="flbl">Your domain</div>
-      <input class="ef" id="baseDomain" value="https://sk-foundation.pk">
-      <div class="flbl">Campaign slug</div>
-      <input class="ef" id="campSlug" value="donate">
-      <div class="flbl">UTM source (optional)</div>
+      <div class="flbl">UTM source</div>
       <input class="ef" id="utmSrc" placeholder="whatsapp / facebook / email">
       <button class="save-btn" style="margin-bottom:10px;" onclick="genLink()">Generate link</button>
       <div class="link-strip" id="genBox" style="display:none;">
@@ -416,14 +443,14 @@ textarea.ef{resize:vertical;min-height:80px;line-height:1.6;}
 
   <div class="adm-card" style="margin-bottom:1rem;">
     <div class="adm-card-title">Platform settings</div>
-    <div class="tog-row"><div><div class="tog-lbl">Accept donations</div><div class="tog-sub">Pause to stop all payments</div></div><button class="tog on" onclick="this.classList.toggle('on')"></button></div>
-    <div class="tog-row"><div><div class="tog-lbl">Show donor feed</div><div class="tog-sub">Recent donors visible publicly</div></div><button class="tog on" onclick="this.classList.toggle('on')"></button></div>
-    <div class="tog-row"><div><div class="tog-lbl">Show progress bar</div><div class="tog-sub">Goal progress visible publicly</div></div><button class="tog on" onclick="this.classList.toggle('on')"></button></div>
-    <div class="tog-row"><div><div class="tog-lbl">Anonymous mode</div><div class="tog-sub">Your name never appears anywhere</div></div><button class="tog on" onclick="this.classList.toggle('on')"></button></div>
+    <div class="tog-row"><div><div>Accept donations</div><div style="font-size:11px;color:var(--text-hint);">Pause to stop all payments</div></div><button class="tog on" onclick="this.classList.toggle('on')"></button></div>
+    <div class="tog-row"><div><div>Show donor feed</div><div style="font-size:11px;color:var(--text-hint);">Recent donors visible publicly</div></div><button class="tog on" onclick="this.classList.toggle('on')"></button></div>
+    <div class="tog-row"><div><div>Show progress bar</div></div><button class="tog on" onclick="this.classList.toggle('on')"></button></div>
+    <div class="tog-row"><div><div>Anonymous mode</div><div style="font-size:11px;color:var(--text-hint);">Your name never appears anywhere</div></div><button class="tog on" onclick="this.classList.toggle('on')"></button></div>
   </div>
 
   <div class="adm-card" style="margin-bottom:1rem;">
-    <div class="adm-card-title">Change credentials</div>
+    <div class="adm-card-title">Change admin credentials</div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.9rem;">
       <div><div class="flbl">New username</div><input class="ef" id="nUser" placeholder="New username"></div>
       <div><div class="flbl">New password</div><input class="ef" type="password" id="nPass" placeholder="Min 8 characters" oninput="checkStr(this.value)"><div class="pass-bar" id="pBar" style="width:0%;background:#c0392b;"></div></div>
@@ -447,40 +474,74 @@ textarea.ef{resize:vertical;min-height:80px;line-height:1.6;}
 <div class="toast-area"><div class="toast" id="toastEl"></div></div>
 
 <script>
-var lAmt=100,iAmt=2,raisedPKR=0,goalPKR=200000,donorCount=0,todayPKR=0;
+var EP_NUMBER='03129111424';
+var EP_DISPLAY='0312-9111424';
+var lAmt=100,raisedPKR=0,goalPKR=200000,donorCount=0,todayPKR=0;
 var adminUser='boss',adminPass='SKF@786secure';
-var attempts=0,lockUntil=0;
-var firstDonor=true;
+var attempts=0,lockUntil=0,firstDonor=true;
 
 function toast(msg,dur){dur=dur||3000;var t=document.getElementById('toastEl');t.textContent=msg;t.className='toast show';setTimeout(function(){t.className='toast';},dur);}
 
 function selAmt(type,val,el){
-  var btns=type==='l'?document.querySelectorAll('#lGrid .amt-btn'):document.querySelectorAll('#iGrid .amt-btn');
+  var btns=document.querySelectorAll('#lGrid .amt-btn');
   btns.forEach(function(b){b.classList.remove('on');});el.classList.add('on');
-  var cw=type==='l'?document.getElementById('lCust'):document.getElementById('iCust');
-  if(val===0){cw.style.display='flex';}else{cw.style.display='none';if(type==='l')lAmt=val;else iAmt=val;}
+  var cw=document.getElementById('lCust');
+  if(val===0){cw.style.display='flex';}else{cw.style.display='none';lAmt=val;}
 }
+
+function getLocalAmt(){
+  var cv=document.getElementById('lCust');
+  if(cv.style.display!=='none'){return parseInt(document.getElementById('lCustVal').value)||100;}
+  return lAmt;
+}
+
+function openEPModal(){
+  var amt=getLocalAmt();
+  document.getElementById('epAmtDisplay').textContent='Rs. '+amt.toLocaleString();
+  document.getElementById('epAmtStep').textContent='Rs. '+amt.toLocaleString();
+  document.getElementById('epNumDisplay').textContent=EP_DISPLAY;
+  document.getElementById('epModal').classList.add('open');
+}
+function closeEPModal(){document.getElementById('epModal').classList.remove('open');}
+function copyEPNum(){
+  navigator.clipboard&&navigator.clipboard.writeText(EP_NUMBER);
+  toast('Easypaisa number copied: '+EP_DISPLAY);
+}
+function confirmDonation(){
+  var amt=getLocalAmt();
+  raisedPKR+=amt;todayPKR+=amt;donorCount++;
+  updateProgress();
+  addDonorRow(amt,'PKR');
+  addTxn(amt,'PKR','Easypaisa');
+  closeEPModal();
+  toast('Thank you! Your donation of Rs. '+amt.toLocaleString()+' is recorded. Jazak Allah Khair!');
+}
+
 function switchTab(tab,el){
-  ['pp','cd','bk'].forEach(function(t){document.getElementById('tab-'+t).style.display=t===tab?'block':'none';});
+  ['iban','wise','pp'].forEach(function(t){document.getElementById('tab-'+t).style.display=t===tab?'block':'none';});
   document.querySelectorAll('.tbtn').forEach(function(b){b.classList.remove('on');});el.classList.add('on');
 }
 
-function donate(method){
-  var amt,cur,lbl;
-  if(method==='ep'||method==='jc'){
-    var cv=document.getElementById('lCust');
-    amt=cv.style.display!=='none'?(parseInt(document.getElementById('lCustVal').value)||100):lAmt;
-    cur='PKR';lbl=method==='ep'?'Easypaisa':'JazzCash';
-  } else if(method==='pp'){
-    var cv2=document.getElementById('iCust');
-    amt=cv2.style.display!=='none'?(parseFloat(document.getElementById('iCustVal').value)||2):iAmt;
-    cur='USD';lbl='PayPal';
-  } else if(method==='cd'){amt=iAmt;cur='USD';lbl='Card';}
-  else{toast('Bank details copied!');return;}
-  var pkr=cur==='USD'?Math.round(amt*280):amt;
-  raisedPKR+=pkr;todayPKR+=pkr;donorCount++;
-  updateProgress();addDonorRow(amt,cur);addTxn(amt,cur,lbl);
-  toast('Thank you! '+(cur==='PKR'?'Rs. '+amt.toLocaleString():'$'+amt)+' via '+lbl);
+function copyBankDetails(){
+  var txt='SK-Foundation Bank Details:\nBank: Telenor Microfinance Bank (Easypaisa)\nIBAN: '+document.getElementById('bkIBAN').textContent+'\nSWIFT: TELNPKKA';
+  navigator.clipboard&&navigator.clipboard.writeText(txt);toast('Bank details copied!');
+}
+function copyPP(){
+  var pp=document.getElementById('ppEmail').textContent;
+  navigator.clipboard&&navigator.clipboard.writeText(pp);toast('PayPal email copied!');
+}
+function copyLink(){navigator.clipboard&&navigator.clipboard.writeText(document.getElementById('shareUrl').textContent);toast('Link copied!');}
+
+function shareWA(){
+  var msg='Assalam o Alaikum,\n\nSK-Foundation — helping needy families across Pakistan.\n100% of every rupee goes directly to real families. No middlemen.\n\nDonate here:\nhttps://SK-Foundation-Charity.github.io\n\nJazak Allah Khair.';
+  window.open('https://wa.me/?text='+encodeURIComponent(msg),'_blank');
+}
+function shareTwitter(){
+  var msg='SK-Foundation is helping needy families in Pakistan. 100% of donations reach real families. Donate & share: https://SK-Foundation-Charity.github.io #SKFoundation #Pakistan #Charity';
+  window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(msg),'_blank');
+}
+function shareFB(){
+  window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent('https://SK-Foundation-Charity.github.io'),'_blank');
 }
 
 function updateProgress(){
@@ -495,7 +556,7 @@ function updateProgress(){
 }
 
 var dColors=[{bg:'#e8f4ef',fg:'#1a6b4a'},{bg:'#e8f0fb',fg:'#0062b8'},{bg:'#fef3dc',fg:'#7a4f00'},{bg:'#fce8f0',fg:'#8b1d4e'}];
-var dNames=['Ahmed K.','Zara M.','Bilal H.','Nadia S.','Tariq N.','Ayesha F.','Omar R.','Sana Q.'];
+var dNames=['Ahmed K.','Zara M.','Bilal H.','Nadia S.','Tariq N.','Ayesha F.','Omar R.','Sana Q.','Hassan A.','Maryam T.'];
 function addDonorRow(amt,cur){
   if(firstDonor){document.getElementById('donorList').innerHTML='';firstDonor=false;}
   var n=dNames[Math.floor(Math.random()*dNames.length)];
@@ -515,22 +576,20 @@ function addTxn(amt,cur,lbl){
   var tb=document.getElementById('txnBody');
   if(tb.querySelector('td[colspan]'))tb.innerHTML='';
   var tr=document.createElement('tr');
-  tr.innerHTML='<td>'+n+'</td><td>'+amtStr+'</td><td>'+lbl+'</td><td>just now</td><td><span class="sp sp-ok">Received</span></td>';
+  var d=new Date();var t=d.getHours()+':'+String(d.getMinutes()).padStart(2,'0');
+  tr.innerHTML='<td>'+n+'</td><td>'+amtStr+'</td><td>'+lbl+'</td><td>'+t+'</td><td><span class="sp sp-ok">Received</span></td>';
   tb.insertBefore(tr,tb.firstChild);
   if(tb.children.length>10)tb.removeChild(tb.lastChild);
 }
-
-function copyLink(){navigator.clipboard&&navigator.clipboard.writeText(document.getElementById('shareUrl').textContent);toast('Link copied to clipboard!');}
 
 function openGate(){
   document.getElementById('gateOverlay').classList.add('open');
   document.getElementById('loginErr').style.display='none';
   document.getElementById('loginUser').value='';
   document.getElementById('loginPass').value='';
-  setTimeout(function(){document.getElementById('loginUser').focus();},100);
+  setTimeout(function(){document.getElementById('loginUser').focus();},150);
 }
 function closeGate(){document.getElementById('gateOverlay').classList.remove('open');}
-
 function tryLogin(){
   var now=Date.now();
   if(now<lockUntil){toast('Too many attempts. Wait '+Math.ceil((lockUntil-now)/1000)+'s.');return;}
@@ -545,10 +604,9 @@ function tryLogin(){
   } else {
     attempts++;
     document.getElementById('loginErr').style.display='block';
-    if(attempts>=3){lockUntil=Date.now()+30000;toast('Locked for 30 seconds — security protection active.');}
+    if(attempts>=3){lockUntil=Date.now()+30000;toast('Locked 30 seconds — security active.');}
   }
 }
-
 function logout(){
   document.getElementById('adminPanel').classList.remove('open');
   document.getElementById('pubPage').style.display='block';
@@ -561,11 +619,14 @@ function saveContent(){
   document.getElementById('goalLbl').textContent='Rs. '+goalPKR.toLocaleString();
   updateProgress();toast('Campaign updated!');
 }
-function saveBank(){
-  document.getElementById('bkTitle').textContent=document.getElementById('aBkTitle').value;
-  document.getElementById('bkNum').textContent=document.getElementById('aBkNum').value||'—';
-  document.getElementById('bkSwift').textContent=document.getElementById('aBkSwift').value;
-  toast('Bank details updated!');
+function saveIntl(){
+  var iban=document.getElementById('aIBAN').value;
+  var wise=document.getElementById('aWise').value;
+  var pp=document.getElementById('aPP').value;
+  if(iban)document.getElementById('bkIBAN').textContent=iban;
+  if(wise)document.getElementById('wiseAcc').textContent=wise;
+  if(pp)document.getElementById('ppEmail').textContent=pp;
+  toast('International payment details saved!');
 }
 function saveImpact(){
   document.getElementById('imp1').textContent=parseInt(document.getElementById('eI1').value).toLocaleString();
@@ -574,10 +635,8 @@ function saveImpact(){
   toast('Impact stats updated!');
 }
 function genLink(){
-  var base=document.getElementById('baseDomain').value.replace(/\/$/,'');
-  var slug=document.getElementById('campSlug').value.trim();
   var utm=document.getElementById('utmSrc').value.trim();
-  var link=base+'/'+slug;
+  var link='https://SK-Foundation-Charity.github.io';
   if(utm)link+='?utm_source='+encodeURIComponent(utm)+'&utm_medium=share&utm_campaign=skfoundation';
   document.getElementById('genLinkTxt').textContent=link;
   document.getElementById('shareUrl').textContent=link;
