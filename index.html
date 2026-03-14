@@ -323,7 +323,11 @@ textarea.ef{resize:vertical;min-height:80px;line-height:1.6;}
   <div class="modal">
     <div class="modal-title">Donate via Easypaisa</div>
     <div class="modal-sub">Send your donation directly to SK-Foundation's Easypaisa account. Simple, instant, secure.</div>
-    <div class="ep-amount-display">
+    <div style="margin-bottom:1rem;">
+<div class="flbl">Your name (optional — shown to other donors)</div>
+<input type="text" class="finp" id="donorName" placeholder="e.g. Ahmed Khan or leave blank for Anonymous" autocomplete="off">
+</div>
+<div class="ep-amount-display">
       <div class="ep-amt-label">Your donation amount</div>
       <div class="ep-amt-value" id="epAmtDisplay">Rs. 100</div>
     </div>
@@ -510,12 +514,15 @@ function copyEPNum(){
 }
 function confirmDonation(){
   var amt=getLocalAmt();
+  var rawName=document.getElementById('donorName').value.trim();
+  var displayName=rawName||'Anonymous donor';
   raisedPKR+=amt;todayPKR+=amt;donorCount++;
   updateProgress();
-  addDonorRow(amt,'PKR');
-  addTxn(amt,'PKR','Easypaisa');
+  addDonorRow(amt,'PKR',displayName);
+  addTxn(amt,'PKR','Easypaisa',displayName);
+  document.getElementById('donorName').value='';
   closeEPModal();
-  toast('Thank you! Your donation of Rs. '+amt.toLocaleString()+' is recorded. Jazak Allah Khair!');
+  toast('Jazak Allah Khair! Rs. '+amt.toLocaleString()+' recorded. Check your Easypaisa for confirmation.');
 }
 
 function switchTab(tab,el){
@@ -558,10 +565,11 @@ function updateProgress(){
 
 var dColors=[{bg:'#e8f4ef',fg:'#1a6b4a'},{bg:'#e8f0fb',fg:'#0062b8'},{bg:'#fef3dc',fg:'#7a4f00'},{bg:'#fce8f0',fg:'#8b1d4e'}];
 var dNames=['Ahmed K.','Zara M.','Bilal H.','Nadia S.','Tariq N.','Ayesha F.','Omar R.','Sana Q.','Hassan A.','Maryam T.'];
-function addDonorRow(amt,cur){
+function addDonorRow(amt,cur,realName){
   if(firstDonor){document.getElementById('donorList').innerHTML='';firstDonor=false;}
-  var n=dNames[Math.floor(Math.random()*dNames.length)];
-  var ini=n.split(' ').map(function(w){return w[0];}).join('');
+  var n=realName||'Anonymous donor';
+  var words=n.split(' ');
+  var ini=words.length>=2?words[0][0]+words[1][0]:words[0].substring(0,2).toUpperCase();
   var c=dColors[Math.floor(Math.random()*dColors.length)];
   var amtStr=cur==='PKR'?'Rs. '+amt.toLocaleString():'$'+amt;
   var row=document.createElement('div');row.className='donor-row';row.style.opacity='0';
@@ -571,14 +579,14 @@ function addDonorRow(amt,cur){
   setTimeout(function(){row.style.transition='opacity 0.4s';row.style.opacity='1';},50);
   if(list.children.length>6)list.removeChild(list.lastChild);
 }
-function addTxn(amt,cur,lbl){
-  var n=dNames[Math.floor(Math.random()*dNames.length)];
+function addTxn(amt,cur,lbl,realName){
+  var n=realName||'Anonymous donor';
   var amtStr=cur==='PKR'?'Rs. '+amt.toLocaleString():'$'+amt;
   var tb=document.getElementById('txnBody');
   if(tb.querySelector('td[colspan]'))tb.innerHTML='';
   var tr=document.createElement('tr');
   var d=new Date();var t=d.getHours()+':'+String(d.getMinutes()).padStart(2,'0');
-  tr.innerHTML='<td>'+n+'</td><td>'+amtStr+'</td><td>'+lbl+'</td><td>'+t+'</td><td><span class="sp sp-ok">Received</span></td>';
+  tr.innerHTML='<td>'+n+'</td><td>'+amtStr+'</td><td>'+lbl+'</td><td>'+t+'</td><td><span class="sp sp-ok">Confirmed</span></td>';
   tb.insertBefore(tr,tb.firstChild);
   if(tb.children.length>10)tb.removeChild(tb.lastChild);
 }
