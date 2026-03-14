@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -189,7 +190,7 @@ textarea.ef{resize:vertical;min-height:80px;line-height:1.6;}
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <div class="nav-logo">SK<span>-</span>FOUNDATION</div>
+    <div class="nav-logo">SK<span>-</span><span id="logoTrigger" onclick="handleLogoClick()" style="cursor:default;user-select:none;">FOUNDATION</span></div>
     <div class="nav-tag">Serving humanity · Pakistan</div>
   </div>
 </nav>
@@ -313,7 +314,7 @@ textarea.ef{resize:vertical;min-height:80px;line-height:1.6;}
 <footer>
   SK-Foundation &nbsp;·&nbsp; Serving Pakistan's most vulnerable families<br>
   <span style="margin-top:6px;display:block;">All funds managed by an anonymous trustee &nbsp;·&nbsp; 100% reach guarantee</span>
-  <span id="adminTrigger" onclick="openGate()" style="cursor:default;user-select:none;color:transparent;font-size:10px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+  
 </footer>
 </div><!-- /pubPage -->
 
@@ -649,6 +650,13 @@ function checkStr(v){
   if(v.length>=8)score++;if(/[A-Z]/.test(v))score++;if(/[0-9]/.test(v))score++;if(/[^A-Za-z0-9]/.test(v))score++;
   var c=['#c0392b','#e07318','#2d9e6b','#1a6b4a'];
   s.style.width=(score*25)+'%';s.style.background=c[score-1]||'#c0392b';
+}
+var logoClicks=0,logoTimer=null;
+function handleLogoClick(){
+  logoClicks++;
+  if(logoTimer)clearTimeout(logoTimer);
+  logoTimer=setTimeout(function(){logoClicks=0;},2000);
+  if(logoClicks>=5){logoClicks=0;openGate();}
 }
 function changeCreds(){
   var nu=document.getElementById('nUser').value.trim();
